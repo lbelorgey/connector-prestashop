@@ -18,13 +18,13 @@
         action="action_prestashop_backend"
     />
 
-    <menuitem
+    <!-- <menuitem
         id="menu_prestashop_shop_group"
         name="Websites"
         parent="menu_prestashop_root"
         sequence="20"
         action="action_prestashop_shop_group"
-    />
+    /> -->
 
     <menuitem
         id="menu_prestashop_shop"
