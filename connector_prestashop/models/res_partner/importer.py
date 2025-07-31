@@ -53,7 +53,7 @@ class PartnerImportMapper(Component):
         binder = self.binder_for("prestashop.groups.pricelist")
         pricelist = binder.to_internal(record["id_default_group"], unwrap=True)
         if not pricelist:
-            return {"property_product_pricelist": 2, 'property_account_position_id': 5}
+            return {"property_product_pricelist": 2, "property_account_position_id": 5}
         return {"property_product_pricelist": pricelist.id}
 
     @mapping
@@ -177,9 +177,11 @@ class AddressImportMapper(Component):
 
     @mapping
     def name(self, record):
-        parts = [record["company"], record["firstname"], record["lastname"]]
+        parts = [record["firstname"], record["lastname"]]
         name = " ".join(p.strip() for p in parts if p.strip())
-        return {"name": name}
+        parts2 = [record["company"], name]
+        namewithcompany = " - ".join(p.strip() for p in parts2 if p.strip())
+        return {"name": namewithcompany}
 
     @mapping
     def country(self, record):
