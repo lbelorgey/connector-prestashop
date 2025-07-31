@@ -50,11 +50,7 @@ class PartnerImportMapper(Component):
 
     @mapping
     def pricelist(self, record):
-        binder = self.binder_for("prestashop.groups.pricelist")
-        pricelist = binder.to_internal(record["id_default_group"], unwrap=True)
-        if not pricelist:
-            return {"property_product_pricelist": 2, "property_account_position_id": 5}
-        return {"property_product_pricelist": pricelist.id}
+        return {"property_product_pricelist": 1}
 
     @mapping
     def is_company(self, record):
